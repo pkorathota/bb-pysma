@@ -1,5 +1,5 @@
 #!/home/pi/pysma/bin/python3
-"""Basic usage example and testing of pysma."""
+
 import argparse
 import asyncio
 import logging
@@ -11,11 +11,6 @@ import time
 import aiohttp
 import sqlite3
 import pysma
-
-# This example will work with Python 3.7+
-# Python 3.4+ "@asyncio.coroutine" decorator
-# Python 3.5+ uses "async def f()" syntax
-# Python 3.7+ provides asyncio.run(). For earlier versions the loop should be created manually.
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -122,7 +117,6 @@ async def main_loop(password, user, url):
 
 
 async def main():
-    """Run example."""
     logging.basicConfig(stream=sys.stdout, level=logging.WARNING)
 
     parser = argparse.ArgumentParser(description="Test the SMA webconnect library.")
