@@ -26,6 +26,7 @@ def archive_db():
 	sql = '''SELECT dateTime,total_yield, metering_total_yield, metering_total_absorbed
 	FROM archive WHERE dateTime > ? order by dateTime limit 1'''
 
+	# the (variable,) format indicates that it's a sequence, which cursor.execute(wants)
 	cur.execute(sql, (midnight.timestamp(),) )
 
 	rows = cur.fetchall()
