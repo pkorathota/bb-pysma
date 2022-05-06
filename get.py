@@ -53,9 +53,16 @@ def write_db(sensors):
             metering_current_consumption, metering_total_consumption)
             VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
             ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) '''
-    cur = conn.cursor()
-    cur.execute(sql, sensor_values)
-    conn.commit()
+
+    if len(sensor_values) < 40:
+        print("Inverter not returning full sensor list. Sleeping?")
+        print(sensor_names)
+        return None
+    else:
+        cur = conn.cursor()
+        cur.execute(sql, sensor_values)
+        conn.commit()
+    fi
 
 
 def print_table(sensors):
