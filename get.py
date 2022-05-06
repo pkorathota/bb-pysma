@@ -62,7 +62,6 @@ def write_db(sensors):
         cur = conn.cursor()
         cur.execute(sql, sensor_values)
         conn.commit()
-    fi
 
 
 def print_table(sensors):
